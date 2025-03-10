@@ -38,6 +38,7 @@
             git
             imgpkg
             just
+            kapp
             kubectl
             sops
             vendir
