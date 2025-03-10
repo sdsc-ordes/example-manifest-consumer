@@ -16,4 +16,10 @@ directories:
       - v0.1.0-41-g333b8e8
     path: .
   path: _ytt_lib/gimie
+- contents:
+  - helmChart:
+      appVersion: v0.5.5
+      version: 0.2.3
+    path: .
+  path: helm_charts/qlever
 kind: LockConfig

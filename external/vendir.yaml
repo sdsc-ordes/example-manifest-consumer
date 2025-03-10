@@ -17,3 +17,12 @@ directories:
       url: https://github.com/sdsc-ordes/gimie-api
       ref: origin/feat/k8s-manifests
     newRootPath: tools/deploy/
+
+- path: helm_charts/qlever
+  contents:
+  - path: .
+    helmChart:
+      name: qlever
+      version: 0.2.3
+      repository:
+        url: https://charts.zazuko.com
