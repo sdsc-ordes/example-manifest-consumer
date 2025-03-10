@@ -10,10 +10,10 @@ directories:
   path: _ytt_lib/shacl
 - contents:
   - git:
-      commitTitle: 'refactor(deploy): flatten manifests'
-      sha: 537e3bfa220fc328d6180be6418272a46d56b7e4
+      commitTitle: 'fix(deploy): add missing dep metadata labels'
+      sha: 333b8e817b6e63a4919dd4118789f8d7fdaa1f67
       tags:
-      - v0.1.0-40-g537e3bf
+      - v0.1.0-41-g333b8e8
     path: .
   path: _ytt_lib/gimie
 kind: LockConfig
