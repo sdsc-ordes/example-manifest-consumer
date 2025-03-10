@@ -2,8 +2,8 @@
 #@data/values
 
 ---
-name: "ytt-consumer_shacl-api"
-namespace: "ytt_consumer"
+name: "shacl"
+namespace: "shacl-consumer"
 replicas: 3
 shapes:
   path: "/data/shapes.ttl"
