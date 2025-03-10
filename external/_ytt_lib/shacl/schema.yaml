@@ -1,0 +1,13 @@
+#@data/values-schema
+
+---
+name: "shacl-api"
+version: ""
+#@schema/validation min_len=1
+image: "ghcr.io/sdsc-ordes/shacl-api:latest"
+#@schema/validation min_len=1
+namespace: "default"
+replicas: 1
+shapes:
+  path: "/data/shapes.ttl"
+  url: 'https://github.com/sdsc-ordes/imaging-plaza-ontology/releases/download/v0.8/ImagingOntologyCombined.ttl.gz'

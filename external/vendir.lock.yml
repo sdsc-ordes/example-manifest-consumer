@@ -1,0 +1,19 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: 'fix(just): update manifest paths, simplify ytt command'
+      sha: c588df7f8ad0fc9112c71d9f21b6a57f1cc3cfce
+      tags:
+      - v0.0.5-91-gc588df7
+    path: .
+  path: _ytt_lib/shacl
+- contents:
+  - git:
+      commitTitle: 'refactor(deploy): flatten manifests'
+      sha: 537e3bfa220fc328d6180be6418272a46d56b7e4
+      tags:
+      - v0.1.0-40-g537e3bf
+    path: .
+  path: _ytt_lib/gimie
+kind: LockConfig

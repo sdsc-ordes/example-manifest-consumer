@@ -1,0 +1,19 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+directories:
+
+- path: _ytt_lib/shacl
+  contents:
+  - path: .
+    git:
+      url: https://github.com/sdsc-ordes/shacl-api
+      ref: origin/feat/k8s
+    newRootPath: tools/deploy/
+
+- path: _ytt_lib/gimie
+  contents:
+  - path: .
+    git:
+      url: https://github.com/sdsc-ordes/gimie-api
+      ref: origin/feat/k8s-manifests
+    newRootPath: tools/deploy/

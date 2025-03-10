@@ -1,0 +1,32 @@
+#@ load("@ytt:data", "data")
+#@ load("common.lib.star", "resourceLabels")
+#@ v = data.values
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: #@ v.name
+  namespace: #@ v.namespace
+  labels: #@ resourceLabels(v)
+spec:
+  replicas: #@ v.replicas
+  strategy:
+    type: Recreate
+  selector:
+      matchLabels: #@ resourceLabels(v)
+  template:
+    metadata:
+      labels: #@ resourceLabels(v)
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: #@ v.name
+          image: #@ v.image
+          ports:
+            - containerPort: 15400
+          env:
+            - name: SHAPES_PATH
+              value: #@ v.shapes.path
+            - name: SHAPES_URL
+              value: #@ v.shapes.url
