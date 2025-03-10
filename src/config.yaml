@@ -1,0 +1,10 @@
+#@ load("@ytt:library", "library")
+#@ load("@ytt:template", "template")
+
+---
+#@ gimie = library.get("gimie")
+#@ template.replace(gimie.eval())
+
+---
+#@ shacl = library.get("shacl")
+#@ template.replace(shacl.eval())

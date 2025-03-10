@@ -1,0 +1,10 @@
+#@library/ref "@gimie"
+#@data/values
+
+---
+name: "ytt-consumer_gimie-api"
+namespace: "gimie_consumer"
+replicas: 3
+tokens:
+  github: "should-be-read-from-secret"
+  gitlab: "this-one-as-well"

@@ -1,0 +1,10 @@
+#@library/ref "@shacl"
+#@data/values
+
+---
+name: "ytt-consumer_shacl-api"
+namespace: "ytt_consumer"
+replicas: 3
+shapes:
+  path: "/data/shapes.ttl"
+  url: "https://github.com/sdsc-ordes/imaging-plaza-ontology/releases/download/v0.8/ImagingOntologyCombined.ttl.gz"
