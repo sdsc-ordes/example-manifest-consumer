@@ -29,12 +29,13 @@ fetch:
   vendir sync -f vendir.yaml --chdir external
 
 
+# Render ytt manifests
 [private]
 render-ytt: clean fetch
     cp -r ./external/_ytt_lib ./src/ytt/* {{build_dir}}/pre && \
     ytt -f {{build_dir}}/pre > {{build_dir}}/manifests.yaml
 
-# Render Helm templates
+# Render Helm charts
 [private]
 render-helm: render-ytt
   cd {{root_dir}} && \
