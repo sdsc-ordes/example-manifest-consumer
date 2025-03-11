@@ -29,9 +29,21 @@ clean:
 fetch:
   vendir sync -f vendir.yaml --chdir external
 
+# Render Helm templates (pre-render)
+[private]
+helm-template: clean fetch
+  for chart_dir in {{root_dir}}/external/helm_charts/*; do \
+    service=$(basename ${chart_dir}); \
+    helm template ${service}-consumer \
+      ${chart_dir} \
+      -f src/${service}/helm-values.yaml \
+      > {{build_dir}}/pre/${service}.yaml; \
+  done
+
 # Render manifests
-render: clean fetch
+render: clean fetch helm-template
     cp -r ./external/_ytt_lib ./src/* {{build_dir}}/pre && \
+    fd helm-values.yaml {{build_dir}}/pre -x rm {} && \
     ytt -f {{build_dir}}/pre > {{build_dir}}/manifests.yaml
 
 # Deploy rendered manifests
