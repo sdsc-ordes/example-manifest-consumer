@@ -1,0 +1,42 @@
+qlever:
+  config:
+    data:
+      #name: "local"
+      #name : "default"
+      name: "olympics"
+      # base_url: https://github.com/wallscope/olympics-rdf
+      # get_data_cmd: curl -sLo olympics.zip -C - https://github.com/wallscope/olympics-rdf/raw/master/data/olympics-nt-nodup.zip && unzip -q -o olympics.zip && rm olympics.zip
+      base_url: "https://github.com/sdsc-ordes/cat-plus-ontology"
+      get_data_cmd: curl -sLo catplus-ontology.nt -C - https://github.com/sdsc-ordes/cat-plus-ontology/releases/download/v0.1.0/catplus-ontology.nt
+    index: 
+      # input_files: olympics.nt
+      # cat_input_files: cat olympics.nt
+      input_files: catplus-ontology.nt
+      cat_input_files: cat catplus-ontology.nt
+    ui:
+      ui_config: "olympics"
+
+ 
+  server: 
+    # -- volumes to mount on the output Deployment definition
+    volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: qlever-data-pvc
+
+    # -- volume mounts to use
+    volumeMounts:
+       - mountPath: /data
+         name: data
+
+  ui: 
+    # -- volumes to mount on the output Deployment definition
+    volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: qlever-data-pvc
+
+    # -- volume mounts to use
+    volumeMounts:
+       - mountPath: /data
+         name: data
