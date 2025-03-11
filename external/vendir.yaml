@@ -18,7 +18,7 @@ directories:
       ref: origin/feat/k8s-manifests
     newRootPath: tools/deploy/
 
-- path: helm_charts/qlever
+- path: helm/qlever
   contents:
   - path: .
     helmChart:
