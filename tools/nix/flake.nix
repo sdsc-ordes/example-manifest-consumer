@@ -34,6 +34,7 @@
             bash
             coreutils
             curl
+            fd
             findutils
             git
             imgpkg
