@@ -17,7 +17,6 @@ nix-develop *args:
   cmd=("$@") && \
   { [ -n "${cmd:-}" ] || cmd=("zsh"); } && \
   nix develop ./tools/nix#default --accept-flake-config --command "${cmd[@]}"
-  
 
 # Clean up build directory
 clean:
@@ -29,22 +28,22 @@ clean:
 fetch:
   vendir sync -f vendir.yaml --chdir external
 
-# Render Helm templates (pre-render)
+
 [private]
-helm-template: clean fetch
-  for chart_dir in {{root_dir}}/external/helm_charts/*; do \
-    service=$(basename ${chart_dir}); \
-    helm template ${service}-consumer \
-      ${chart_dir} \
-      -f src/${service}/helm-values.yaml \
-      > {{build_dir}}/pre/${service}.yaml; \
-  done
+render-ytt: clean fetch
+    cp -r ./external/_ytt_lib ./src/ytt/* {{build_dir}}/pre && \
+    ytt -f {{build_dir}}/pre > {{build_dir}}/manifests.yaml
+
+# Render Helm templates
+[private]
+render-helm: render-ytt
+  cd {{root_dir}} && \
+    fd 'values.yaml' src/helm \
+      -x sh -c 'helm template $(basename {//}) external/helm/$(basename {//})  -f {}' \
+    >> {{build_dir}}/manifests.yaml
 
 # Render manifests
-render: clean fetch helm-template
-    cp -r ./external/_ytt_lib ./src/* {{build_dir}}/pre && \
-    fd helm-values.yaml {{build_dir}}/pre -x rm {} && \
-    ytt -f {{build_dir}}/pre > {{build_dir}}/manifests.yaml
+render: render-helm
 
 # Deploy rendered manifests
 deploy: render
