@@ -10,10 +10,10 @@ directories:
   path: _ytt_lib/shacl
 - contents:
   - git:
-      commitTitle: 'fix(deploy): add missing dep metadata labels'
-      sha: 333b8e817b6e63a4919dd4118789f8d7fdaa1f67
+      commitTitle: 'docs(readme): update usage instructions'
+      sha: fe95f0ca8b05becc1f2e5a4a611da94fca474045
       tags:
-      - v0.1.0-41-g333b8e8
+      - v0.1.0-42-gfe95f0c
     path: .
   path: _ytt_lib/gimie
 - contents:
