@@ -43,14 +43,17 @@ just fetch
 
 The third-party manifests are made available in the `./external` directory.
 
-Next, you can render the manifests using [`ytt`](https://carvel.dev/ytt).
-You can render the manifests with:
+Next, you can render the manifests via [`ytt`](https://carvel.dev/ytt) using:
 
 ```shell
 just render
 ```
 
-The rendered manifests are all concatenated written to `./build/manifests.yaml`.
+The rendered manifests are available in `./build/manifests`.
+
+> [!NOTE]
+> External helm charts will be rendered first and included in the outputs.
+> To render an external helm chart in `external/helm/<service>`, include your values in `src/<service>/helm/values.yaml`.
 
 Finally, you can apply the rendered manifests to your cluster using `kubectl`:
 
