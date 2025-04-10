@@ -7,7 +7,7 @@ directories:
   - path: .
     git:
       url: https://github.com/sdsc-ordes/shacl-api
-      ref: origin/feat/k8s
+      ref: origin/develop
     newRootPath: tools/deploy/
 
 - path: _ytt_lib/gimie
@@ -15,7 +15,7 @@ directories:
   - path: .
     git:
       url: https://github.com/sdsc-ordes/gimie-api
-      ref: origin/feat/k8s-manifests
+      ref: origin/develop
     newRootPath: tools/deploy/
 
 - path: helm/qlever

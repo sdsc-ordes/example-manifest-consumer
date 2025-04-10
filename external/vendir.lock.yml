@@ -2,18 +2,18 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'fix(just): update manifest paths, simplify ytt command'
-      sha: c588df7f8ad0fc9112c71d9f21b6a57f1cc3cfce
+      commitTitle: 'refactor: ergonomic endpoints (#17)...'
+      sha: 66e8470c53dfcba9b520e26d235111c3f209116f
       tags:
-      - v0.0.5-91-gc588df7
+      - v0.0.5-11-g66e8470
     path: .
   path: _ytt_lib/shacl
 - contents:
   - git:
-      commitTitle: 'docs(readme): update usage instructions'
-      sha: fe95f0ca8b05becc1f2e5a4a611da94fca474045
+      commitTitle: 'fix(docker): add src dir'
+      sha: d9ff83a8b05f596d444428b91ad5c873b4e7d95b
       tags:
-      - v0.1.0-42-gfe95f0c
+      - v0.1.0-6-gd9ff83a
     path: .
   path: _ytt_lib/gimie
 - contents:
